@@ -1,3 +1,14 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using CatFactApp.Configuration;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.DependencyInjection;
 
-Console.WriteLine("Hello, World!");
+
+var builder = Host.CreateApplicationBuilder(args);
+
+builder.Services.AddOptions<CatFactConfig>()
+    .BindConfiguration("CatFactConfig")
+    .ValidateDataAnnotations()
+    .ValidateOnStart();
+
+
+using var host = builder.Build();
