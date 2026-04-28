@@ -11,7 +11,7 @@ COPY [".", "./"]
 RUN dotnet publish src/CatFact.ConsoleApp/CatFact.ConsoleApp.csproj -c Release -o /app/out --no-restore /p:UseAppHost=false
 
 
-FROM mcr.microsoft.com/dotnet/aspnet:10.0
+FROM mcr.microsoft.com/dotnet/runtime:10.0
 
 WORKDIR /app
 
