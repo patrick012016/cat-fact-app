@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatFact.ConsoleApp", "src\CatFact.ConsoleApp\CatFact.ConsoleApp.csproj", "{A74245F7-883B-4786-A0F9-272C23274252}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatFact.ConsoleApp.UnitTests", "tests\CatFact.ConsoleApp.UnitTests\CatFact.ConsoleApp.UnitTests.csproj", "{6CACBF32-427E-4DCF-AFF7-D4F8319622F8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{A74245F7-883B-4786-A0F9-272C23274252}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A74245F7-883B-4786-A0F9-272C23274252}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A74245F7-883B-4786-A0F9-272C23274252}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CACBF32-427E-4DCF-AFF7-D4F8319622F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CACBF32-427E-4DCF-AFF7-D4F8319622F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CACBF32-427E-4DCF-AFF7-D4F8319622F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CACBF32-427E-4DCF-AFF7-D4F8319622F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
