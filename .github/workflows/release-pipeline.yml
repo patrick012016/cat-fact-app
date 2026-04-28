@@ -63,4 +63,4 @@ jobs:
         run: docker build -f src/CatFact.ConsoleApp/Dockerfile -t catfactapp:ci-test .
 
       - name: Run container
-        run: docker run -i --rm catfactapp:ci-test
+        run: docker run --rm catfactapp:ci-test
