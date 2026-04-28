@@ -1,0 +1,66 @@
+name: CatFact.ConsoleApp CI/CD pipeline
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+permissions:
+  contents: read
+
+jobs:
+  unit-tests:
+    name: Unit tests
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up .NET 10.0
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+          cache: true
+          cache-dependency-path: '**/*.csproj'
+      
+      - name: Run tests
+        run: dotnet test -c Release
+
+  publish-verification:
+    name: Publish verify
+    needs: unit-tests
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up .NET 10.0
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+          cache: true
+          cache-dependency-path: '**/*.csproj'
+
+      - name: Publish project
+        run: dotnet publish src/CatFact.ConsoleApp/CatFact.ConsoleApp.csproj -c Release -p:TreatWarningsAsErrors=true /p:UseAppHost=false
+
+  docker-integration:
+    name: Docker build
+    needs: publish-verification
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Build image
+        run: docker build -f src/CatFact.ConsoleApp/Dockerfile -t catfactapp:ci-test .
+
+      - name: Run container
+        run: echo "q" | docker run -i --rm catfactapp:ci-test
