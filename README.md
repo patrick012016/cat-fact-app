@@ -49,7 +49,7 @@ Execute these commands from the **root directory** (where the `.sln` file is):
 ```bash
 
 docker build -f src/CatFact.ConsoleApp/Dockerfile -t catfactapp .
-docker run --rm catfactapp
+docker run -it --rm catfactapp
 ```
 
 ## License
