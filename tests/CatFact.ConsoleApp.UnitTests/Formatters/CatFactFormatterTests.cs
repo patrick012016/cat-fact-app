@@ -3,7 +3,7 @@ using CatFactApp.Formatters;
 using CatFactApp.Models;
 using Xunit;
 
-namespace CatFactApp.Tests.Unit.Formatters;
+namespace CatFactApp.Tests.Formatters;
 
 [ExcludeFromCodeCoverage]
 public class CatFactFormatterTests

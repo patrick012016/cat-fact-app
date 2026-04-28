@@ -9,7 +9,7 @@ using Microsoft.Extensions.Options;
 using RichardSzalay.MockHttp;
 using Xunit;
 
-namespace CatFactApp.Tests.Unit.Clients;
+namespace CatFactApp.Tests.Clients;
 
 [ExcludeFromCodeCoverage]
 public class CatFactClientTests

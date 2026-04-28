@@ -16,7 +16,7 @@
         <NuGetAudit>true</NuGetAudit>
         <NuGetAuditMode>all</NuGetAuditMode>
         <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-        <RootNamespace>CatFactApp.Tests.Unit</RootNamespace>
+        <RootNamespace>CatFactApp.Tests</RootNamespace>
 
     </PropertyGroup>
 
