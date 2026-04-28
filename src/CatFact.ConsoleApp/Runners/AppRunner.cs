@@ -26,6 +26,12 @@ public class AppRunner
 
     public async Task RunAsync(CancellationToken cancellationToken = default)
     {
+        if (Console.IsInputRedirected || !Environment.UserInteractive)
+        {
+            await ProcessSingleFactAsync(cancellationToken);
+            return;
+        }
+        
         Console.WriteLine("Press [SPACE] to fetch a fact.");
         Console.WriteLine("Press [Q] to quit.");
 
