@@ -27,7 +27,7 @@ public class CatFactClient : ICatFactClient
             var responseDto =
                 await _httpClient.GetFromJsonAsync<CatFactResponse>(_config.RequestUrl, cancellationToken);
 
-            if (string.IsNullOrWhiteSpace(responseDto?.Fact) || responseDto.Length <= 0)
+            if (responseDto is null || string.IsNullOrWhiteSpace(responseDto.Fact) || responseDto.Length <= 0)
             {
                 _logger.LogWarning("Unexpected empty data in successful API response.");
                 return null;
